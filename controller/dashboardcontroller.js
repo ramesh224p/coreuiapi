@@ -1,4 +1,4 @@
-var dashboardmodel= require('../model/dashboardmodel.js');
+var dashboardmodel= require('../model/dashboardmodel');
 
 function dashboardcontroller() {
     dm=new dashboardmodel();
