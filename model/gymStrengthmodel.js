@@ -1,13 +1,31 @@
-var connection= require('../mysql/mysql.js');
+var connection = require('../mysql/mysql'),
+     multer = require('multer');
 
-function componentsStrengthmodel(){
-    this.mysql=connection;
+function componentsStrengthmodel() {
+    this.mysql = connection;
 }
 
-componentsStrengthmodel.prototype.create=function(data, callback){
-    this.mysql.query('INSERT INTO emp SET?'+data,function(err, result){
-        callback(err, result);
+var storage = multer.diskStorage({ //multers disk storage settings
+    destination: function (req, file, cb) {
+        cb(null, './up/');
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
+var upload = multer({ //multer settings
+    storage: storage
+}).single('file');
+
+componentsStrengthmodel.prototype.create = function (req, res, callback) {
+    upload(req, res, function (err) {
+        if (err) {
+            res.send({ status: false, err: err });
+        } else {
+            res.send({ status: true });
+        }
     })
 }
 
-module.exports=componentsStrengthmodel;
+module.exports = componentsStrengthmodel;

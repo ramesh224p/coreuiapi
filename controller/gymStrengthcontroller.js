@@ -5,7 +5,7 @@ function componentsStrengthcontroller(){
 }
 
 componentsStrengthcontroller.prototype.create=function(req, res){
-    csm.create(req.body, function(err, data){
+    csm.create(req,res, function(err, data){
         if(err){
             res.status(201).send({status:false,data:[]});
         } else {

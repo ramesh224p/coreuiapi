@@ -13,6 +13,6 @@ router.use('/member', require('./memberrouter'));
 
 router.use('/dashboard', require('./dashboardrouter'));
 
-router.use('/components/Strength', require('./gymstrengthrouter'));
+router.use('/uploads', require('./gymstrengthrouter'));
 
 module.exports=router;
