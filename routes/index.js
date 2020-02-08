@@ -15,4 +15,6 @@ router.use('/dashboard', require('./dashboardrouter'));
 
 router.use('/uploads', require('./gymstrengthrouter'));
 
+router.use('/baseupload', require('./base64router'));
+
 module.exports=router;

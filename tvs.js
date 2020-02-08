@@ -1,11 +1,17 @@
-var express= require('express');
-var app = express();
-var bodyParser=require('body-parser');
-var cors=require('cors');
+var express= require('express'),
+  app = express(),
+  bodyParser=require('body-parser'),
+  cors=require('cors'),
+  buffer=require('buffer'),
+  base64Img = require('base64-img'),
+  
 
-var config=require('./config/config.json')
-var jwt = require('jsonwebtoken');
-var methodOverride = require('method-override');
+  config=require('./config/config.json'),
+  jwt = require('jsonwebtoken'),
+  methodOverride = require('method-override'),
+  fs=require('fs'),
+  moments=require('moments'),
+  mime=require('mime');
 
 
 app.use(function (req, res, next) {
@@ -27,6 +33,7 @@ app.use(cors());
 
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({parameterLimit: 100000,
+  limit: '50mb',extended:true}));
 
 app.use('/v1', require('./routes'));
