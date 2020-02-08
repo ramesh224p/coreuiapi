@@ -8,7 +8,7 @@ function userscontroller(){
 userscontroller.prototype.getAll=function(req, res){
     dum.getAll(req, res, function(err, data){
         if(err){
-            res.status(201).send({status:false,data:data});
+            res.status(201).send({status:false,data:[]});
         } else {
             res.status(200).send({status:true, data:data});
         }
@@ -18,7 +18,7 @@ userscontroller.prototype.getAll=function(req, res){
 userscontroller.prototype.getById=function(req, res){
     dum.getById(req.params.id, function(err, data){
         if(err){
-            res.status(201).send({status:false,data:data});
+            res.status(201).send({status:false,data:[]});
         } else {
             res.status(200).send({status:true, data:data});
         }
@@ -29,7 +29,7 @@ userscontroller.prototype.getById=function(req, res){
 userscontroller.prototype.create=function(req, res){
     dum.create(req.body, function(err, data){
         if(err){
-            res.status(201).send({status:false,data:data});
+            res.status(201).send({status:false,data:[]});
         } else {
             res.status(200).send({status:true, data:data});
         }
@@ -38,7 +38,7 @@ userscontroller.prototype.create=function(req, res){
 
 
 userscontroller.prototype.update=function(req, res){
-    dum.update(req.params.id, req.body, function(err, data){
+    dum.update(req.params.id, req.body, function(err, []){
         if(err){
             res.status(201).send({status:false,data:data});
         } else {
@@ -52,7 +52,7 @@ userscontroller.prototype.remove=function(req, res){
     console.log(req.params.id)
     dum.delete(req.params.id, function(err, data){
         if(err){
-            res.status(201).send({status:false,data:data});
+            res.status(201).send({status:false,data:[]});
         } else {
             res.status(200).send({status:true, data:data});
         }

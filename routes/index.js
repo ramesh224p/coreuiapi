@@ -17,4 +17,6 @@ router.use('/uploads', require('./gymstrengthrouter'));
 
 router.use('/baseupload', require('./base64router'));
 
+router.use('/cardio', require('./cardiorouter'));
+
 module.exports=router;
