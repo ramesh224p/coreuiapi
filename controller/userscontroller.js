@@ -6,6 +6,7 @@ function userscontroller(){
 }
 
 userscontroller.prototype.getAll=function(req, res){
+    console.log(req)
     dum.getAll(req, res, function(err, data){
         if(err){
             res.status(201).send({status:false,data:[]});

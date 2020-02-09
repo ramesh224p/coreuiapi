@@ -31,6 +31,9 @@ usersmodel.prototype.create=function(data, callback){
 }
 
 usersmodel.prototype.update=function(id, data, callback){
+    if(data.password){
+       data.password = md5(data.password)
+    }
     this.mysql.query('update emp set? where id='+id, data, function(err, result){
         console.log(err, result);
         callback(err, result);

@@ -19,4 +19,8 @@ router.use('/baseupload', require('./base64router'));
 
 router.use('/cardio', require('./cardiorouter'));
 
+router.use('/forgotpass', require('./forgotpassrouter'));
+
+router.use('/defaultpass', require('./defaultpassrouter'));
+
 module.exports=router;

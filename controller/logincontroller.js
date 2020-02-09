@@ -1,5 +1,5 @@
-var model=require('../model/loginmodel.js');
-var jwt = require('jsonwebtoken');
+var model=require('../model/loginmodel.js'),
+    jwt = require('jsonwebtoken');
 
 function controller(){
     ddm= new model();
@@ -7,9 +7,6 @@ function controller(){
 
 
 controller.prototype.create=function(req, res){
-    console.log("controller")
-    console.log(req.body);
-    
     ddm.create(req.body.name, req.body.password, function(err, data){
         if(err){
             res.status(201).send({status:false,data:[]});

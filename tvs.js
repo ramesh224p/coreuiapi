@@ -4,6 +4,7 @@ var express= require('express'),
   cors=require('cors'),
   buffer=require('buffer'),
   base64Img = require('base64-img'),
+  nodemailer=require('nodemailer'),
   
 
   config=require('./config/config.json'),
