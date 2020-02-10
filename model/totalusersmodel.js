@@ -1,10 +1,10 @@
 var connection=require('../mysql/mysql');
 
-function cardiomodel(){
+function totalusersmodel(){
     this.mysql=connection;
 }
 
-cardiomodel.prototype.getAll=function(request, callback){
+totalusersmodel.prototype.getAll=function(request, callback){
     console.log("usermodel")
     var sql = 'select * from emp where status='+1;
     console.log(request.query)
@@ -20,27 +20,27 @@ cardiomodel.prototype.getAll=function(request, callback){
     })
 }
 
-cardiomodel.prototype.getById=function(id, callback){
+totalusersmodel.prototype.getById=function(id, callback){
     console.log("idmethod")
     this.mysql.query('select * from emp where id='+id,function(err, result){
         callback(err, result)
     })
 }
 
-cardiomodel.prototype.create=function(data, callback){
+totalusersmodel.prototype.create=function(data, callback){
     this.mysql.query('insert into emp set?',data,function(err, result){
         callback(err, result)
     })
 }
-cardiomodel.prototype.update=function(id, data, callback){
+totalusersmodel.prototype.update=function(id, data, callback){
     this.mysql.query('update emp set? where id='+id,data,function(err, result){
         callback(err, result)
     })
 }
-cardiomodel.prototype.remove=function(id, callback){
+totalusersmodel.prototype.remove=function(id, callback){
     this.mysql.query('delete from emp where id='+id,function(err, result){
         callback(err, result)
     })
 }
 
-module.exports=cardiomodel;
+module.exports=totalusersmodel;

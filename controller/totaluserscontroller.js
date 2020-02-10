@@ -1,10 +1,10 @@
-var cardimodel=require('../model/cardiomodel');
+var cardimodel=require('../model/totalusersmodel');
 
-function cardiocontroller(){
+function totaluserscontroller(){
     dcmm=new cardimodel();
 }
 
-cardiocontroller.prototype.getAll=function(req, res){
+totaluserscontroller.prototype.getAll=function(req, res){
     console.log(req.query)
     console.log("allmodel")
     dcmm.getAll(req, function(err, data){
@@ -16,7 +16,7 @@ cardiocontroller.prototype.getAll=function(req, res){
     })
 }
 
-cardiocontroller.prototype.getById=function(req, res){
+totaluserscontroller.prototype.getById=function(req, res){
     dcmm.getById(req.params.id, function(err, data){
         if(err){
             res.status(201).send({status:false,data:[]});
@@ -26,7 +26,7 @@ cardiocontroller.prototype.getById=function(req, res){
     })
 }
 
-cardiocontroller.prototype.create=function(req, res){
+totaluserscontroller.prototype.create=function(req, res){
     dcmm.create(req.body, function(err, data){
         if(err){
             res.status(201).send({status:false,data:[]});
@@ -36,7 +36,7 @@ cardiocontroller.prototype.create=function(req, res){
     })
 }
 
-cardiocontroller.prototype.update=function(req, res){
+totaluserscontroller.prototype.update=function(req, res){
     dcmm.update(req.params.id, req.body, function(err, data){
         if(err){
             res.status(201).send({status:false,data:[]});
@@ -46,7 +46,7 @@ cardiocontroller.prototype.update=function(req, res){
     })
 }
 
-cardiocontroller.prototype.remove=function(req, res){
+totaluserscontroller.prototype.remove=function(req, res){
     dcmm.remove(req.body, function(err, data){
         if(err){
             res.status(201).send({status:false,data:[]});
@@ -56,4 +56,4 @@ cardiocontroller.prototype.remove=function(req, res){
     })
 }
 
-module.exports=cardiocontroller;
+module.exports=totaluserscontroller;
