@@ -5,19 +5,19 @@ router.use('/login', require('./loginrouter'));
 
 router.use('/users', require('./usersrouter'));
 
-router.use('/play', require('./playrouter'));
+router.use('/pedicuretotal', require('./pedicurerouter'));
 
-router.use('/totals', require('./totalrouter'));
+router.use('/strengthtotal', require('./strengthrouter'));
 
 router.use('/member', require('./memberrouter'));
 
 router.use('/dashboard', require('./dashboardrouter'));
 
-router.use('/uploads', require('./gymstrengthrouter'));
+router.use('/uploads', require('./uploadrouter'));
 
-router.use('/baseupload', require('./base64router'));
+router.use('/baseupload', require('./base64router')); 
 
-router.use('/totalusers', require('./totalusersrouter'));
+router.use('/totalusers', require('./totalusersrouter')); 
 
 router.use('/forgotpass', require('./forgotpassrouter'));
 

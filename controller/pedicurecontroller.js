@@ -1,13 +1,11 @@
-var cardimodel=require('../model/totalusersmodel');
+var pedicureModel=require('../model/pedicuremodel');
 
-function totaluserscontroller(){
-    dcmm=new cardimodel();
+function pedicureController(){
+    pm= new pedicureModel();
 }
 
-totaluserscontroller.prototype.getAll=function(req, res){
-    console.log(req.query)
-    console.log("allmodel")
-    dcmm.getAll(req, function(err, data){
+pedicureController.prototype.getAll=function(req, res){
+    pm.getAll(function(err, data){
         if(err){
             res.status(201).send({status:false,data:[]});
         } else {
@@ -16,8 +14,8 @@ totaluserscontroller.prototype.getAll=function(req, res){
     })
 }
 
-totaluserscontroller.prototype.getById=function(req, res){
-    dcmm.getById(req.params.id, function(err, data){
+pedicureController.prototype.getById=function(req, res){
+    pm.getById(req.params.id, function(err, data){
         if(err){
             res.status(201).send({status:false,data:[]});
         } else {
@@ -26,8 +24,9 @@ totaluserscontroller.prototype.getById=function(req, res){
     })
 }
 
-totaluserscontroller.prototype.create=function(req, res){
-    dcmm.create(req.body, function(err, data){
+
+pedicureController.prototype.create=function(req, res){
+    pm.create(req.body, function(err, data){
         if(err){
             res.status(201).send({status:false,data:[]});
         } else {
@@ -36,8 +35,9 @@ totaluserscontroller.prototype.create=function(req, res){
     })
 }
 
-totaluserscontroller.prototype.update=function(req, res){
-    dcmm.update(req.params.id, req.body, function(err, data){
+
+pedicureController.prototype.update=function(req, res){
+    pm.update(req.params.id, req.body, function(err, data){
         if(err){
             res.status(201).send({status:false,data:[]});
         } else {
@@ -46,8 +46,9 @@ totaluserscontroller.prototype.update=function(req, res){
     })
 }
 
-totaluserscontroller.prototype.remove=function(req, res){
-    dcmm.remove(req.params.id, function(err, data){
+
+pedicureController.prototype.remove=function(req, res){
+    pm.remove(req.params.id, function(err, data){
         if(err){
             res.status(201).send({status:false,data:[]});
         } else {
@@ -56,4 +57,5 @@ totaluserscontroller.prototype.remove=function(req, res){
     })
 }
 
-module.exports=totaluserscontroller;
+
+module.exports=pedicureController;

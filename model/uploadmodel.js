@@ -1,7 +1,7 @@
 var connection = require('../mysql/mysql'),
      multer = require('multer');
 
-function componentsStrengthmodel() {
+function uploadmodel() {
     this.mysql = connection;
 }
 
@@ -18,7 +18,7 @@ var upload = multer({ //multer settings
     storage: storage
 }).single('file');
 
-componentsStrengthmodel.prototype.create = function (req, res, callback) {
+uploadmodel.prototype.create = function (req, res, callback) {
     upload(req, res, function (err) {
         if (err) {
             res.send({ status: false, err: err });
@@ -28,4 +28,4 @@ componentsStrengthmodel.prototype.create = function (req, res, callback) {
     })
 }
 
-module.exports = componentsStrengthmodel;
+module.exports = uploadmodel;
