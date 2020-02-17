@@ -1,5 +1,5 @@
-var express=require('express');
-var router=express.Router();
+var express = require('express');
+var router = express.Router();
 
 router.use('/login', require('./loginrouter'));
 
@@ -15,12 +15,12 @@ router.use('/dashboard', require('./dashboardrouter'));
 
 router.use('/uploads', require('./uploadrouter'));
 
-router.use('/baseupload', require('./base64router')); 
+router.use('/baseupload', require('./base64router'));
 
-router.use('/totalusers', require('./totalusersrouter')); 
+router.use('/totalusers', require('./totalusersrouter'));
 
 router.use('/forgotpass', require('./forgotpassrouter'));
 
 router.use('/defaultpass', require('./defaultpassrouter'));
 
-module.exports=router;
+module.exports = router;

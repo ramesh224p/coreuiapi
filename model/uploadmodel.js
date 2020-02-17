@@ -1,5 +1,5 @@
 var connection = require('../mysql/mysql'),
-     multer = require('multer');
+    multer = require('multer');
 
 function uploadmodel() {
     this.mysql = connection;

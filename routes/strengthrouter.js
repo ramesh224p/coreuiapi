@@ -1,6 +1,6 @@
-var express=require('express'),
-    router=express.Router(),
-    strengthController=require('../controller/strengthcontroller'),
+var express = require('express'),
+    router = express.Router(),
+    strengthController = require('../controller/strengthcontroller'),
 
     tc = new strengthController();
 
@@ -11,4 +11,4 @@ router.put('/:id', tc.update.bind(tc));
 router.delete('/:id', tc.remove.bind(tc));
 
 
-module.exports=router;
+module.exports = router;

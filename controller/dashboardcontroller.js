@@ -1,18 +1,18 @@
-var dashboardmodel= require('../model/dashboardmodel');
+var dashboardmodel = require('../model/dashboardmodel');
 
 function dashboardcontroller() {
-    dm=new dashboardmodel();
+    dm = new dashboardmodel();
 }
 
-dashboardcontroller.prototype.get=function(req, res){
-    dm.get(function(err, data){
-        if(err){
-            res.status(201).send({status:false, data:[]});
+dashboardcontroller.prototype.get = function (req, res) {
+    dm.get(function (err, data) {
+        if (err) {
+            res.status(201).send({ status: false, data: [] });
         } else {
-            res.status(200).send({status:true,data:data})
+            res.status(200).send({ status: true, data: data })
         }
     })
 
 }
 
-module.exports=dashboardcontroller;
+module.exports = dashboardcontroller;
