@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var controller = require('../controller/logincontroller.js');
-var dc = new controller();
+var express = require('express'),
+    router = express.Router(),
+    controller = require('../controller/logincontroller.js'),
+    dc = new controller();
 
 router.post('/', dc.create.bind(dc));
 

@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var userscontroller = require('../controller/userscontroller.js');
-var duc = new userscontroller();
+var express = require('express'),
+    router = express.Router(),
+    userscontroller = require('../controller/userscontroller.js'),
+    duc = new userscontroller();
 
 router.get('', duc.getAll.bind(duc));
 router.get('/:id', duc.getById.bind(duc));

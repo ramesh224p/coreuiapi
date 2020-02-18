@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var memberController = require('../controller/membercontroller.js');
-var mc = new memberController();
+var express = require('express'),
+    router = express.Router(),
+    memberController = require('../controller/membercontroller.js'),
+    mc = new memberController();
 
 router.get('/:id', mc.getById.bind(mc));
 
