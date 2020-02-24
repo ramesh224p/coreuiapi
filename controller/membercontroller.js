@@ -1,17 +1,13 @@
-var memberModel = require('../model/membermodel.js');
+var memberModel = require('../model/membermodel.js'),
+    controllerUtil=require('../utils/controllerutils');
 
 function memberController() {
     mm = new memberModel();
+    cuu = new controllerUtil();
 }
 
-memberController.prototype.getById = function (req, res) {
-    mm.getById(req.params.id, function (err, data) {
-        if (err) {
-            res.status(201).send({ status: false, data: [] });
-        } else {
-            res.status(200).send({ status: true, data: data });
-        }
-    })
+memberController.prototype.getById = function (req, res, next) {
+    cuu.getById(mm, req, res, next);
 }
 
 

@@ -1,18 +1,13 @@
-var defaultpassmodel = require('../model/defaultpassmodel');
+var defaultpassmodel = require('../model/defaultpassmodel'),
+    controllerUtil=require('../utils/controllerutils');
 
 function defaultpasscontroller() {
     dpmm = new defaultpassmodel();
+    cuu = new controllerUtil();
 }
 
-defaultpasscontroller.prototype.update = function (req, res) {
-    console.log(req.body)
-    dpmm.update(req.params.id, req.body, function (err, data) {
-        if (err) {
-            res.status(201).send({ status: false, data: [] });
-        } else {
-            res.status(200).send({ status: true, data: data });
-        }
-    })
+defaultpasscontroller.prototype.update = function (req, res, next) {
+    cuu.update(dpmm, req, res, next);
 }
 
 module.exports = defaultpasscontroller;

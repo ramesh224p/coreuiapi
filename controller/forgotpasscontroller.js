@@ -1,33 +1,17 @@
-var forgotpassmodel = require('../model/forgotpassmodel');
-
+var forgotpassmodel = require('../model/forgotpassmodel'),
+    controllerUtil=require('../utils/controllerutils');
 
 function forgotpasscontroller() {
     fpm = new forgotpassmodel();
+    cuu = new controllerUtil();
 }
 
-forgotpasscontroller.prototype.getAll = function (req, res) {
-    console.log(req.query)
-    fpm.getAll(req.query.email, function (err, data) {
-        if (err) {
-            res.status(500).send({ status: false, data: [], err: err });
-        } else if (Object.keys(data).length == 0) {
-            res.status(201).send({ status: false, data: [] });
-        } else {
-            res.status(200).send({ status: true, data: data });
-        }
-    })
+forgotpasscontroller.prototype.getAll = function (req, res, next) {
+    cuu.getAll(fpm, req, res, next);
 }
 
-
-forgotpasscontroller.prototype.update = function (req, res) {
-    console.log(req.body)
-    fpm.update(req.params.id, req.body, function (err, data) {
-        if (err) {
-            res.status(201).send({ status: false, data: [] });
-        } else {
-            res.status(200).send({ status: true, data: data });
-        }
-    })
+forgotpasscontroller.prototype.update = function (req, res, next) {
+    cuu.update(fpm, req, res, next);
 }
 
 module.exports = forgotpasscontroller;

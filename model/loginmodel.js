@@ -6,10 +6,7 @@ function model() {
 }
 
 model.prototype.create = function (name, password, callback) {
-    console.log("model");
-    console.log(name, password)
     this.mysql.query('SELECT * FROM emp WHERE email="' + name + '"AND password="' + md5(password) + '"', function (err, result) {
-        console.log(result);
         callback(err, result);
     })
 }

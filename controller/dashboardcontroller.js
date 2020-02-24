@@ -1,18 +1,20 @@
-var dashboardmodel = require('../model/dashboardmodel');
+var dashboardmodel = require('../model/dashboardmodel'),
+    controllerUtil=require('../utils/controllerutils'),
+    jwt=require('jsonwebtoken');
 
 function dashboardcontroller() {
     dm = new dashboardmodel();
+    cuu=new controllerUtil();
 }
 
-dashboardcontroller.prototype.get = function (req, res) {
-    dm.get(function (err, data) {
-        if (err) {
-            res.status(201).send({ status: false, data: [] });
-        } else {
-            res.status(200).send({ status: true, data: data })
-        }
-    })
-
+dashboardcontroller.prototype.getAll = function (req, res, next) {
+    // jwt.verify(req.headers.authorization, 'some' , (err, authData) => {
+    //     if(err){
+    //         console.log(err)
+    //     }else{
+            cuu.getAll(dm, req, res, next);
+    //     }
+    // })
 }
 
 module.exports = dashboardcontroller;

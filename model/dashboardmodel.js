@@ -4,7 +4,7 @@ function dashboardmodel() {
     this.mysql = connection;
 }
 
-dashboardmodel.prototype.get = function (callback) {
+dashboardmodel.prototype.getAll = function (callback) {
     this.mysql.query('SELECT * FROM emp', function (err, result) {
         callback(err, result);
     })
